@@ -7,5 +7,5 @@ $TTL 86400
 	86400 )
 @ IN NS ns1.bodyskills.local.
 @ IN NS ns2.bodyskills.local.
-ns1 IN PTR 172.16.0.2
-ns2 IN PTR 172.16.0.3
+2 IN PTR ns1.bodyskills.local.
+3 IN PTR ns2.bodyskills.local.

@@ -1,16 +1,15 @@
-acl "lan" { "172.16.0.0/24"; 127.0.0.1;};
-
+acl "lan" { 172.16.0.0/24; 127.0.0.1;};
 options {
 	directory "/var/bind";
-	listen-on {"lan"};
+	listen-on {"any";};
 	recursion yes;
-	allow-recursion {"lan";};
+	allow-recursion {"any";};
 	forwarders {
 	8.8.8.8;
 	1.1.1.1;
 	};
 	allow-transfer {none;};
-	allow-query {"lan";};
+	allow-query {"any";};
 	version "Not available";
 	dnssec-validation auto;
-}
+};

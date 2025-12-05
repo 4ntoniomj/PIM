@@ -3,10 +3,10 @@ zone "bodyskills.local" {
 	file "/etc/bind/db.bodyskills.local";
 	allow-transfer {172.16.0.3;};
 	also-notify {172.16.0.3;};
-}
+};
 zone "0.16.172.in-addr.arpa" {
 	type master;
 	file "/etc/bind/0.16.172.in-addr.arpa";
 	allow-transfer {172.16.0.3;};
 	also-notify {172.16.0.3;};
-}
+};

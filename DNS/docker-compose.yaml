@@ -1,0 +1,19 @@
+services:
+  dns1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "53:53/udp"
+    container_name: DNS1
+    restart: unless-stopped
+    networks:
+      PIM:
+        ipv4_address: 172.16.0.2
+
+networks:
+  PIM:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.0.0/24
