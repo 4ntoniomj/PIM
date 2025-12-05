@@ -1,0 +1,4 @@
+#!/bin/sh
+
+chown -R bind:bind /etc/bind
+chown -R bind:bind /var/bind

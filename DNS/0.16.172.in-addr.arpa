@@ -1,0 +1,11 @@
+$TTL 86400
+@ IN SOA ns1.bodyskills.local. mail.bodyskills.locaol. (
+	2025120500
+	3600
+	1800
+	1209600
+	86400 )
+@ IN NS ns1.bodyskills.local.
+@ IN NS ns2.bodyskills.local.
+ns1 IN PTR 172.16.0.2
+ns2 IN PTR 172.16.0.3
