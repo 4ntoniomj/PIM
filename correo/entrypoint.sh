@@ -21,3 +21,4 @@ fi
 #postconf -e ‘smtpd_tls_received_header = yes’
 #postconf -e ‘smtpd_tls_session_cache_timeout = 3600’
 #postconf -e ‘tls_random_source = dev:/dev/urandom’
+postfix start-fg
