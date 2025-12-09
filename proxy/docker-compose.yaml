@@ -1,21 +1,27 @@
 services:
 
+# EL PRIMER SERVICIO ES UN NGINX CONFIGURADO NORMAL
   nginx-1:
-    container_name: backend1
-    restart: unless-stopped
+    container_name: backend1 # NOMBRE DEL CONTENEDOR
+    restart: unless-stopped # NO INICIA JUNTO AL SISTEMA SI ESTABA PARADO PREVIAMENTE
     build:
       context: .
-      dockerfile: Dockerfile
-    expose:
+      dockerfile: Dockerfile # CONSTRUIMOS IMAGEN
+    expose: # EXPONEMOS PUERTO SOLO EN LA RED INTERNA DE DOCKER
       - "80"
     volumes:
       - ./backends/nginx.conf:/etc/nginx/nginx.conf
       - ./backends/default.conf:/etc/nginx/sites-enabled/default.conf
       - ./backend1/:/var/www/html/
+    cap_add:
+      - NET_ADMIN # AGREGA CAPACIDADES DE ADMINISTRACIÓN DE RED, NECESARIO PARA FIREWALL
+    environment:
+      - FIREWALL=1
     networks:
       proxy:
-        ipv4_address: 192.168.10.3
+        ipv4_address: 192.168.10.3 # IP
 
+# IGUAL QUE NGINX-1
   nginx-2:
     container_name: backend2
     restart: unless-stopped
@@ -28,6 +34,10 @@ services:
       - ./backends/nginx.conf:/etc/nginx/nginx.conf
       - ./backends/default.conf:/etc/nginx/sites-enabled/default.conf
       - ./backend2/:/var/www/html/
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - FIREWALL=1
     networks:
       proxy:
         ipv4_address: 192.168.10.4
@@ -39,10 +49,14 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "80:80" # PORTFORWARDING CON EL HOST REAL
     volumes:
       - ./proxy-data/nginx.conf:/etc/nginx/nginx.conf
       - ./proxy-data/default.conf:/etc/nginx/sites-enabled/default.conf
+    environment:
+      - FIREWALL=1
+    cap_add:
+      - NET_ADMIN
     networks:
       proxy:
         ipv4_address: 192.168.10.2
@@ -50,7 +64,7 @@ services:
 # Definimos como va a ser la red
 networks:
   proxy:
-    driver: bridge
+    driver: bridge # CONEXIÓN ENTRE CONTENEDORES
     ipam:
       config:
         - subnet: 192.168.10.0/24

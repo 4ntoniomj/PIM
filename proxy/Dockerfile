@@ -2,7 +2,7 @@
 FROM alpine:3.23
 
 # ACTUALIZAMOS E INSTALAMOS NGINX BORRANDO CACHÉ
-RUN apk update && apk add nginx --no-cache
+RUN apk update && apk add nginx iptables curl --no-cache
 RUN rm -rf /var/cache/apk/*
 
 # CARPETAS NECESARIAS
@@ -27,6 +27,9 @@ WORKDIR /etc/nginx
 
 # ESTA LÍNEA SE USA PARA MATAR EL CONTENEDOR RÁPIDO
 STOPSIGNAL SIGINT
+
+# VARIABLE QUE EJECUTA FIREWALL DE ENTRYPOINT
+ENV FIREWALL=0
 
 # EJECUTAMOS ENTRYPOINT
 ENTRYPOINT ["/entrypoint"]

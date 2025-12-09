@@ -1,3 +1,26 @@
 #!/bin/ash
 
+# COMPROBAMOS SI LA VARIABLE FIREWALL ES DISTINTO QUE 0
+if [ ${FIREWALL} -ne 0 ]; then
+    # SEGURIDAD SOLO EN BACKENDS
+    IPT=/usr/sbin/iptables
+    IP=$(hostname -i)
+
+    # POLÍTICAS POR DEFECTO Y PERMITIR DNS, LOOPBACK Y RESPUESTAS
+    $IPT -P INPUT DROP
+    $IPT -P FORWARD DROP
+    $IPT -I INPUT 1 -i lo -j ACCEPT
+    $IPT -A INPUT -p udp --dport 53 -j ACCEPT
+    $IPT -A INPUT -p tcp --dport 53 -j ACCEPT # TCP NECESARIO PARA ALGUNAS CONSULTAS DNS
+    $IPT -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+
+    # SI LA IP PERTENECE A BACKEND APLICA REGLAS
+    if [[ $(echo ${IP: -1}) == 3 || $(echo ${IP: -1}) == 4 ]]; then
+        # PERMITIMOS CONEXIÓN AL PUERTO 80 DESDE ESA IP
+        $IPT -A INPUT -p tcp --dport 80 -s 192.168.10.2 -j ACCEPT
+    else # SI NO APLICA ESTAS
+        $IPT -A INPUT -p tcp --dport 80 -j ACCEPT
+    fi
+fi
+# EJECUTAMOS NGINX EN PRIMER PLANO
 nginx -g "daemon off;"
