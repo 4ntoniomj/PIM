@@ -1,0 +1,56 @@
+services:
+
+  nginx-1:
+    container_name: backend1
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - "80"
+    volumes:
+      - ./backends/nginx.conf:/etc/nginx/nginx.conf
+      - ./backends/default.conf:/etc/nginx/sites-enabled/default.conf
+      - ./backend1/:/var/www/html/
+    networks:
+      proxy:
+        ipv4_address: 192.168.10.3
+
+  nginx-2:
+    container_name: backend2
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - "80"
+    volumes:
+      - ./backends/nginx.conf:/etc/nginx/nginx.conf
+      - ./backends/default.conf:/etc/nginx/sites-enabled/default.conf
+      - ./backend2/:/var/www/html/
+    networks:
+      proxy:
+        ipv4_address: 192.168.10.4
+
+  nginx-proxy:
+    container_name: ProxyInverso
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./proxy-data/nginx.conf:/etc/nginx/nginx.conf
+      - ./proxy-data/default.conf:/etc/nginx/sites-enabled/default.conf
+    networks:
+      proxy:
+        ipv4_address: 192.168.10.2
+
+# Definimos como va a ser la red
+networks:
+  proxy:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.10.0/24
