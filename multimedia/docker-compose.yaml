@@ -1,0 +1,78 @@
+services:
+  plex:
+    image: linuxserver/plex:1.42.2
+    container_name: plexserver
+    ports:
+      - "32400:32400"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - UMASK_SET= 022
+      - VERSION=docker
+    volumes:
+      - ./plexdata/config:/config
+      - ./plexdata/tv:/tv
+      - ./plexdata/movies:/movies
+    restart: unless-stopped
+  
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:5.1.4
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - WEBUI_PORT=8080
+      - TORRENTING_PORT=6881
+    volumes:
+      - ./dataqbittorrent/config:/config
+      - ./dataqbittorrent/downloads:/downloads
+    ports:
+      - 8080:8080
+      - 6881:6881
+      - 6881:6881/udp
+    restart: unless-stopped
+
+  sonarr-series:
+    image: lscr.io/linuxserver/sonarr:4.0.16
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - ./datasonarr/config:/config
+      - ./plexdata/tv:/tv
+      - ./datadownload/tv:/downloads
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+
+  radarr-pelis:
+    image: lscr.io/linuxserver/radarr:6.1.0-nightly
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - ./dataradarr/config:/config
+      - ./plexdata/movies:/movies
+      - ./datadownload/movies:/downloads
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+  
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:2.3.1-nightly
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - ./dataprowlarr/config:/config
+    ports:
+      - 9696:9696
+    restart: unless-stopped

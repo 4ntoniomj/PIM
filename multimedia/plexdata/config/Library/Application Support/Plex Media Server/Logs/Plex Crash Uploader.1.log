@@ -1,0 +1,5 @@
+Dec 12, 2025 23:30:11.850 [140214336523064] INFO - Crash Uploader - Session Health - Status: exited StartTime: 1765577877 Duration: 734 UserId: amj16012004@gmail.com Version: 1.42.2.10156-f737b826c
+Dec 12, 2025 23:30:11.851 [140214364444680] DEBUG - [HCl#1] HTTP requesting POST https://o17675.ingest.sentry.io/api/1233455/envelope/?sentry_key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Dec 12, 2025 23:30:12.058 [140214336281400] DEBUG - [HttpClient/HCl#1] HTTP/2.0 (0.2s) 200 response from POST https://o17675.ingest.sentry.io/api/1233455/envelope/?sentry_key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Dec 12, 2025 23:30:12.058 [140214364444680] INFO - Successfully reported session health
+Dec 12, 2025 23:30:12.058 [140214364444680] INFO - Crash Uploader - Processing Complete.

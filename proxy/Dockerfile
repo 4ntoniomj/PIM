@@ -3,7 +3,6 @@ FROM alpine:3.23
 
 # ACTUALIZAMOS E INSTALAMOS NGINX BORRANDO CACHÉ
 RUN apk update && apk add nginx iptables curl --no-cache
-RUN rm -rf /var/cache/apk/*
 
 # CARPETAS NECESARIAS
 RUN mkdir -p /etc/nginx/sites-enabled /var/run/nginx /var/www/html

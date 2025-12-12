@@ -1,0 +1,79 @@
+(N) 2025-12-12T22:48:36 - qBittorrent v5.1.4 started. Process ID: 151
+(N) 2025-12-12T22:48:36 - Using config directory: /config/qBittorrent
+(N) 2025-12-12T22:48:36 - Trying to listen on the following list of IP addresses: "0.0.0.0:6881,[::]:6881"
+(I) 2025-12-12T22:48:36 - Peer ID: "-qB5140-"
+(I) 2025-12-12T22:48:36 - HTTP User-Agent: "qBittorrent/5.1.4"
+(I) 2025-12-12T22:48:36 - Distributed Hash Table (DHT) support: ON
+(I) 2025-12-12T22:48:36 - Local Peer Discovery support: ON
+(I) 2025-12-12T22:48:36 - Peer Exchange (PeX) support: ON
+(I) 2025-12-12T22:48:36 - Anonymous mode: OFF
+(I) 2025-12-12T22:48:36 - Encryption support: ON
+(I) 2025-12-12T22:48:36 - Successfully listening on IP. IP: "127.0.0.1". Port: "TCP/6881"
+(I) 2025-12-12T22:48:36 - Successfully listening on IP. IP: "127.0.0.1". Port: "UTP/6881"
+(I) 2025-12-12T22:48:36 - Successfully listening on IP. IP: "172.27.0.3". Port: "TCP/6881"
+(I) 2025-12-12T22:48:36 - Successfully listening on IP. IP: "172.27.0.3". Port: "UTP/6881"
+(I) 2025-12-12T22:48:36 - Successfully listening on IP. IP: "::1". Port: "TCP/6881"
+(I) 2025-12-12T22:48:36 - Successfully listening on IP. IP: "::1". Port: "UTP/6881"
+(W) 2025-12-12T22:48:36 - Couldn't load IP geolocation database. Reason: No such file or directory
+(N) 2025-12-12T22:48:37 - Using built-in WebUI.
+(W) 2025-12-12T22:48:37 - Couldn't load WebUI translation for selected locale (C).
+(N) 2025-12-12T22:48:37 - WebUI: Now listening on IP: *, port: 8080
+(I) 2025-12-12T22:48:37 - Detected external IP. IP: "185.182.126.187"
+(I) 2025-12-12T22:48:38 - IP geolocation database loaded. Type: DBIP-Country-Lite. Build time: Mon Dec 1 03:28:10 2025.
+(I) 2025-12-12T22:48:38 - Successfully updated IP geolocation database.
+(N) 2025-12-12T22:48:48 - WebAPI login success. IP: ::ffff:172.27.0.1
+(N) 2025-12-12T22:49:23 - La traducción de WebUI para la configuración regional seleccionada (es) se cargó correctamente.
+(N) 2025-12-12T22:50:24 - WebAPI: inicio de sesión exitoso. IP: ::ffff:172.27.0.4
+(N) 2025-12-12T23:08:21 - terminación de qBittorrent iniciada
+(N) 2025-12-12T23:08:21 - Se ha completado el guardado de los datos del currículum.
+(N) 2025-12-12T23:08:21 - La sesión de BitTorrent finalizó exitosamente.
+(N) 2025-12-12T23:08:21 - qBittorrent ahora está listo para salir
+(N) 2025-12-12T23:17:57 - Se inició qBittorrent v5.1.4. ID de proceso: 149
+(N) 2025-12-12T23:17:57 - Usando el directorio de configuración: /config/qBittorrent
+(N) 2025-12-12T23:17:57 - Intentando escuchar en la siguiente lista de direcciones IP: "0.0.0.0:6881,[::]:6881"
+(I) 2025-12-12T23:17:57 - ID de par: "-qB5140-"
+(I) 2025-12-12T23:17:57 - Agente de Usuario HTTP: "qBittorrent/5.1.4"
+(I) 2025-12-12T23:17:57 - Soporte de tabla hash distribuida (DHT): ON
+(I) 2025-12-12T23:17:57 - Soporte de deteccion local de pares: ON
+(I) 2025-12-12T23:17:57 - Soporte con intercambio entre pares (PeX): ON
+(I) 2025-12-12T23:17:57 - Modo Anónimo: OFF
+(I) 2025-12-12T23:17:57 - Soporte de cifrado: ON
+(I) 2025-12-12T23:17:57 - Escuchando con éxito en IP. IP: "127.0.0.1". Puerto: "TCP/6881"
+(I) 2025-12-12T23:17:57 - Escuchando con éxito en IP. IP: "127.0.0.1". Puerto: "UTP/6881"
+(I) 2025-12-12T23:17:57 - Escuchando con éxito en IP. IP: "172.27.0.3". Puerto: "TCP/6881"
+(I) 2025-12-12T23:17:57 - Escuchando con éxito en IP. IP: "172.27.0.3". Puerto: "UTP/6881"
+(I) 2025-12-12T23:17:57 - Escuchando con éxito en IP. IP: "::1". Puerto: "TCP/6881"
+(I) 2025-12-12T23:17:57 - Escuchando con éxito en IP. IP: "::1". Puerto: "UTP/6881"
+(I) 2025-12-12T23:17:57 - Base de datos de geolocalización IP cargada. Tipo: DBIP-Country-Lite. Hora de compilación: Mon Dec 1 03:28:10 2025.
+(N) 2025-12-12T23:17:57 - Usando WebUI incorporada.
+(N) 2025-12-12T23:17:57 - La traducción de WebUI para la configuración regional seleccionada (es) se cargó correctamente.
+(N) 2025-12-12T23:17:57 - WebUI: Esta escuchando en IP: *, puerto: 8080
+(I) 2025-12-12T23:17:58 - IP externa detectada. IP: "185.182.126.187"
+(N) 2025-12-12T23:18:01 - WebAPI: inicio de sesión exitoso. IP: ::ffff:172.27.0.4
+(N) 2025-12-12T23:18:49 - WebAPI: inicio de sesión exitoso. IP: ::ffff:172.27.0.1
+(N) 2025-12-12T23:30:11 - terminación de qBittorrent iniciada
+(N) 2025-12-12T23:30:11 - Se ha completado el guardado de los datos del currículum.
+(N) 2025-12-12T23:30:11 - La sesión de BitTorrent finalizó exitosamente.
+(N) 2025-12-12T23:30:11 - qBittorrent ahora está listo para salir
+(N) 2025-12-12T23:31:13 - Se inició qBittorrent v5.1.4. ID de proceso: 147
+(N) 2025-12-12T23:31:13 - Usando el directorio de configuración: /config/qBittorrent
+(N) 2025-12-12T23:31:13 - Intentando escuchar en la siguiente lista de direcciones IP: "0.0.0.0:6881,[::]:6881"
+(I) 2025-12-12T23:31:13 - ID de par: "-qB5140-"
+(I) 2025-12-12T23:31:13 - Agente de Usuario HTTP: "qBittorrent/5.1.4"
+(I) 2025-12-12T23:31:13 - Soporte de tabla hash distribuida (DHT): ON
+(I) 2025-12-12T23:31:13 - Soporte de deteccion local de pares: ON
+(I) 2025-12-12T23:31:13 - Soporte con intercambio entre pares (PeX): ON
+(I) 2025-12-12T23:31:13 - Modo Anónimo: OFF
+(I) 2025-12-12T23:31:13 - Soporte de cifrado: ON
+(I) 2025-12-12T23:31:13 - Escuchando con éxito en IP. IP: "127.0.0.1". Puerto: "TCP/6881"
+(I) 2025-12-12T23:31:13 - Escuchando con éxito en IP. IP: "127.0.0.1". Puerto: "UTP/6881"
+(I) 2025-12-12T23:31:13 - Escuchando con éxito en IP. IP: "172.27.0.4". Puerto: "TCP/6881"
+(I) 2025-12-12T23:31:13 - Escuchando con éxito en IP. IP: "172.27.0.4". Puerto: "UTP/6881"
+(I) 2025-12-12T23:31:13 - Escuchando con éxito en IP. IP: "::1". Puerto: "TCP/6881"
+(I) 2025-12-12T23:31:13 - Escuchando con éxito en IP. IP: "::1". Puerto: "UTP/6881"
+(I) 2025-12-12T23:31:13 - Base de datos de geolocalización IP cargada. Tipo: DBIP-Country-Lite. Hora de compilación: Mon Dec 1 03:28:10 2025.
+(N) 2025-12-12T23:31:13 - Usando WebUI incorporada.
+(N) 2025-12-12T23:31:13 - La traducción de WebUI para la configuración regional seleccionada (es) se cargó correctamente.
+(N) 2025-12-12T23:31:13 - WebUI: Esta escuchando en IP: *, puerto: 8080
+(I) 2025-12-12T23:31:13 - IP externa detectada. IP: "185.182.126.187"
+(N) 2025-12-12T23:31:17 - WebAPI: inicio de sesión exitoso. IP: ::ffff:172.27.0.3

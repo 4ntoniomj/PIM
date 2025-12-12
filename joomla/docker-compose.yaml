@@ -1,0 +1,76 @@
+services:
+  app:
+    image: markoshust/magento-php:8.2-fpm-1
+    container_name: magento_app
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - magento_data:/var/www/html
+      - ./src:/var/www/html
+    environment:
+      - MAGENTO_RUN_MODE=default
+      - DB_HOST=db
+      - DB_NAME=magento
+      - DB_USER=magento
+      - DB_PASSWORD=magento
+    networks:
+      - magento_network
+
+  db:
+    image: mariadb:10.6
+    container_name: magento_db
+    restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=magento
+      - MYSQL_USER=magento
+      - MYSQL_PASSWORD=magento
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - magento_network
+
+  webserver:
+    image: nginx:alpine
+    container_name: magento_webserver
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+    volumes:
+      - magento_data:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - magento_network
+
+  redis:
+    image: redis:alpine
+    container_name: magento_redis
+    restart: unless-stopped
+    networks:
+      - magento_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: magento_phpmyadmin
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      - PMA_HOST=db
+    ports:
+      - "8080:80"
+    networks:
+      - magento_network
+
+volumes:
+  magento_data:
+  db_data:
+
+networks:
+  magento_network:
+    driver: bridge
